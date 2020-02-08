@@ -1,16 +1,16 @@
-package com.example.recipefinder.ui.home;
+package com.example.recipefinder.fragment;
+import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
+import android.view.ViewGroup;
+import android.os.Bundle;
 
 import com.example.recipefinder.R;
 
 
-public class HomeFragment extends Fragment {
+public class BrunchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {

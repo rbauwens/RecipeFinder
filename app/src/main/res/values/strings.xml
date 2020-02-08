@@ -19,4 +19,7 @@
     <string name="button_soups">Soups</string>
     <string name="button_dessert">Dessert</string>
     <string name="button_baking">Baking</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello Brunch fragment</string>
 </resources>

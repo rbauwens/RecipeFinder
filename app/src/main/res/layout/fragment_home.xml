@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/button_Brunch"
-        android:onClick="cheerMeUpFragment"
+        android:onClick="launchBrunchFragment"
         android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
