@@ -17,6 +17,7 @@
 
     <Button
         android:id="@+id/button_lunch"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
@@ -35,6 +36,7 @@
 
     <Button
         android:id="@+id/button_dinner"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
@@ -52,6 +54,8 @@
 
     <Button
         android:id="@+id/button_Brunch"
+        android:onClick="cheerMeUpFragment"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
@@ -71,6 +75,7 @@
 
     <Button
         android:id="@+id/button_soups"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
@@ -89,6 +94,7 @@
 
     <Button
         android:id="@+id/button_dessert"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
@@ -108,6 +114,7 @@
 
     <Button
         android:id="@+id/button_baking"
+        android:background="?attr/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="80dp"
