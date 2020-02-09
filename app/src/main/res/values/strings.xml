@@ -20,5 +20,7 @@
     <string name="button_dessert">Dessert</string>
     <string name="button_baking">Baking</string>
 
-    <string name="hello_blank_fragment">Brunch</string>
+    <string name="brunch_title">Brunch</string>
+    <string name="soups_title">Soups</string>
+
 </resources>

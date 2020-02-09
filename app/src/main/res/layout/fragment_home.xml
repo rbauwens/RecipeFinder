@@ -79,6 +79,7 @@
 
     <Button
         android:id="@+id/button_soups"
+        android:onClick="launchSoupsFragment"
         android:layout_width="wrap_content"
         android:minWidth="150dp"
         android:layout_height="wrap_content"

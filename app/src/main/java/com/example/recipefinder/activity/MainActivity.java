@@ -15,6 +15,7 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.recipefinder.fragment.SoupsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -171,4 +172,10 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new BrunchFragment());
         setTitle("Brunch Recipes");
     }
+
+    public void launchSoupsFragment(View view) {
+        loadFragment(new SoupsFragment());
+        setTitle("Soup Recipes");
+    }
+
 }
