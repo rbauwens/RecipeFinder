@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.recipefinder.fragment.SoupsFragment;
+import com.example.recipefinder.recipes.RecipeList;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         // initialize navigation menu
         setupDrawerContent();
 
-
+        RecipeList.initialiseList(this.getApplicationContext());
 
     }
 
