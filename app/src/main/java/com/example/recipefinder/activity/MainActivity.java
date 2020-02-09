@@ -5,8 +5,7 @@ import android.os.Bundle;
 
 import com.example.recipefinder.R;
 import com.example.recipefinder.fragment.BrunchFragment;
-import com.example.recipefinder.ui.gallery.GalleryFragment;
-import com.example.recipefinder.ui.home.HomeFragment;
+import com.example.recipefinder.fragment.HomeFragment;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,7 +21,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -92,14 +89,6 @@ public class MainActivity extends AppCompatActivity {
 //                title = getString(R.string.nav_home);
                 title = "Home";
                 fragmentClass = HomeFragment.class;
-                break;
-            case R.id.nav_gallery:
-                title = "Gallery?";
-                fragmentClass = GalleryFragment.class;
-                break;
-            case R.id.nav_slideshow:
-                title = "Brunch?";
-                fragmentClass = BrunchFragment.class;
                 break;
             default:
                 title = "Home";

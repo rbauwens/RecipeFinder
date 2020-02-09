@@ -1,4 +1,4 @@
-package com.example.recipefinder.ui.home;
+package com.example.recipefinder.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
