@@ -26,7 +26,7 @@ public class RecipeListViewDataAdapter extends RecyclerView.Adapter<RecipeRecycl
     public RecipeRecyclerViewItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View photoItemView = layoutInflater.inflate(R.layout.activity_card_view_item, parent, false);
+        View photoItemView = layoutInflater.inflate(R.layout.recipe_card_view_item, parent, false);
 
         final ImageView photoImageView = photoItemView.findViewById(R.id.card_view_image);
 
@@ -67,6 +67,31 @@ public class RecipeListViewDataAdapter extends RecyclerView.Adapter<RecipeRecycl
                         holder.getPhotoImageView().setImageBitmap(BitmapFactory.decodeFile(recipeItem.getRecipeFilePath()));
                     }
                 }
+
+                // Set title
+                if (recipeItem.getRecipeName() != null) {
+                    holder.getRecipeTitleView().setText(recipeItem.getRecipeName());
+                }
+
+                // Set source
+                if (recipeItem.getRecipeSource() != null) {
+                    holder.getRecipeSourceView().setText(recipeItem.getRecipeSource());
+                }
+
+                // Set tags
+                String[] recipeTags = recipeItem.getRecipeTags();
+                if (recipeTags.length != 0) {
+                    String tagString = "";
+                    for (int i = 0; i < recipeTags.length; i++) {
+                        if (i != 0){
+                            tagString = tagString.concat(", ");
+                        }
+                        tagString = tagString.concat(recipeTags[i]);
+                    }
+
+                    holder.getRecipeTagsView().setText(tagString);
+                }
+
             }
         }
     }

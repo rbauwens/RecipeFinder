@@ -32,7 +32,7 @@ public class BrunchFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         RecyclerView settingsRecyclerView = view.findViewById(R.id.card_view_recipe_list);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 4);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
         RecipeListViewDataAdapter recipeDataAdapter = new RecipeListViewDataAdapter(RecipeList.getRecipeList());

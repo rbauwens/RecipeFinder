@@ -2,27 +2,40 @@ package com.example.recipefinder.recipes;
 
 public class RecipeViewItem {
 
-    // Save photo name.
+    // Save recipe name.
     private String recipeName;
+
+    // Save recipe source.
+    private String recipeSource;
 
     // Save image resource id.
     private int recipeImageId;
 
     private String recipeFilePath;
 
-    public RecipeViewItem(String recipeName, int recipeImageId) {
+    private String[] recipeTags;
+
+    public RecipeViewItem(String recipeName, String recipeSource, int recipeImageId, String[] recipeTag) {
         this.recipeName = recipeName;
+        this.recipeSource = recipeSource;
         this.recipeImageId = recipeImageId;
+        this.recipeTags = recipeTag;
     }
 
-    public RecipeViewItem(String recipeName, String recipeFilePath) {
+    public RecipeViewItem(String recipeName, String recipeSource, String recipeFilePath, String[] recipeTag) {
         this.recipeName = recipeName;
+        this.recipeSource = recipeSource;
         this.recipeImageId = 0;
         this.recipeFilePath = recipeFilePath;
+        this.recipeTags = recipeTag;
     }
 
     public String getRecipeName() {
         return recipeName;
+    }
+
+    public String getRecipeSource() {
+        return recipeSource;
     }
 
     public int getRecipeImageId() {
@@ -32,4 +45,6 @@ public class RecipeViewItem {
     public String getRecipeFilePath() {
         return recipeFilePath;
     }
+
+    String[] getRecipeTags() { return recipeTags;}
 }
