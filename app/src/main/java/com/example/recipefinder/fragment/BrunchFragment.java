@@ -12,6 +12,11 @@ import android.os.Bundle;
 import com.example.recipefinder.R;
 import com.example.recipefinder.recipes.RecipeList;
 import com.example.recipefinder.recipes.RecipeListViewDataAdapter;
+import com.example.recipefinder.recipes.RecipeViewItem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class BrunchFragment extends Fragment {
@@ -19,7 +24,6 @@ public class BrunchFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-//        outState.putInt("currentPhoto", photoIndex);
     }
 
 
@@ -31,11 +35,23 @@ public class BrunchFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        RecyclerView settingsRecyclerView = view.findViewById(R.id.card_view_recipe_list);
+        RecyclerView settingsRecyclerView = view.findViewById(R.id.brunch_recipe_list);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
-        RecipeListViewDataAdapter recipeDataAdapter = new RecipeListViewDataAdapter(RecipeList.getRecipeList());
+
+        List<RecipeViewItem> totalRecipeList = RecipeList.getRecipeList();
+        List<RecipeViewItem> brunchRecipeList = new ArrayList<>();;
+
+        for (RecipeViewItem element : totalRecipeList) {
+            String[] elementTags =  element.getRecipeTags();
+            List<String> tagList = Arrays.asList(elementTags);
+            if (tagList.contains("Brunch")) {
+                brunchRecipeList.add(element);
+            }
+        }
+
+        RecipeListViewDataAdapter recipeDataAdapter = new RecipeListViewDataAdapter(brunchRecipeList);
         settingsRecyclerView.setAdapter(recipeDataAdapter);
     }
 }

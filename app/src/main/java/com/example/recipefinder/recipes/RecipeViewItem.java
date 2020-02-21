@@ -46,5 +46,5 @@ public class RecipeViewItem {
         return recipeFilePath;
     }
 
-    String[] getRecipeTags() { return recipeTags;}
+    public String[] getRecipeTags() { return recipeTags;}
 }

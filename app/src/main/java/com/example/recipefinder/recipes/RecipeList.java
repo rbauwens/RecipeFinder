@@ -47,8 +47,8 @@ public class RecipeList {
             if (recipeList == null) {
                 recipeList = new ArrayList<>();
 
-                String[] recipe1Tags = {"brunch", "eggs"};
-                String[] recipe2Tags = {"soup"};
+                String[] recipe1Tags = {"Brunch", "Eggs"};
+                String[] recipe2Tags = {"Soup"};
                 recipeList.add(new RecipeViewItem("Eggs Benedict", "Guardian Feast", R.drawable.brunch_recipe, recipe1Tags));
                 recipeList.add(new RecipeViewItem("Tomato Soup", "Delia Cookbook", R.drawable.soup_recipe, recipe2Tags));
             }
