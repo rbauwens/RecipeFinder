@@ -88,12 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
         switch (fragment) {
             case R.id.nav_home:
-//                title = getString(R.string.nav_home);
-                title = "Home";
+                title = getString(R.string.app_title);
                 fragmentClass = HomeFragment.class;
                 break;
             default:
-                title = "Home";
+                title = getString(R.string.app_title);
                 fragmentClass = HomeFragment.class;
         }
 

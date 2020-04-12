@@ -22,5 +22,6 @@
 
     <string name="brunch_title">Brunch</string>
     <string name="soups_title">Soups</string>
+    <string name="app_title">My Recipe Finder</string>
 
 </resources>

@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recipefinder.fragment.Common;
+
 import com.example.recipefinder.R;
 import com.example.recipefinder.recipes.RecipeList;
 import com.example.recipefinder.recipes.RecipeListViewDataAdapter;
 import com.example.recipefinder.recipes.RecipeViewItem;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -39,17 +40,8 @@ public class SoupsFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
-
         List<RecipeViewItem> totalRecipeList = RecipeList.getRecipeList();
-        List<RecipeViewItem> soupRecipeList = new ArrayList<>();;
-
-        for (RecipeViewItem element : totalRecipeList) {
-            String[] elementTags =  element.getRecipeTags();
-            List<String> tagList = Arrays.asList(elementTags);
-            if (tagList.contains("Soup")) {
-                soupRecipeList.add(element);
-            }
-        }
+        List<RecipeViewItem> soupRecipeList = Common.getRecipesByTag(totalRecipeList, "Soup");
 
         RecipeListViewDataAdapter recipeDataAdapter = new RecipeListViewDataAdapter(soupRecipeList);
         settingsRecyclerView.setAdapter(recipeDataAdapter);

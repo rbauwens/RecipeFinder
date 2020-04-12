@@ -39,17 +39,8 @@ public class BrunchFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
-
         List<RecipeViewItem> totalRecipeList = RecipeList.getRecipeList();
-        List<RecipeViewItem> brunchRecipeList = new ArrayList<>();;
-
-        for (RecipeViewItem element : totalRecipeList) {
-            String[] elementTags =  element.getRecipeTags();
-            List<String> tagList = Arrays.asList(elementTags);
-            if (tagList.contains("Brunch")) {
-                brunchRecipeList.add(element);
-            }
-        }
+        List<RecipeViewItem> brunchRecipeList = Common.getRecipesByTag(totalRecipeList, "Brunch");
 
         RecipeListViewDataAdapter recipeDataAdapter = new RecipeListViewDataAdapter(brunchRecipeList);
         settingsRecyclerView.setAdapter(recipeDataAdapter);
