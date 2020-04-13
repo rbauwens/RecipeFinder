@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,12 +20,14 @@ import androidx.core.content.ContextCompat;
 import com.example.recipefinder.R;
 import com.example.recipefinder.recipes.RecipeList;
 import com.example.recipefinder.recipes.RecipeViewItem;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.IOException;
 
 public class SelectPhotoActivity extends AppCompatActivity {
 
     public final static int PICK_PHOTO_CODE = 1046;
+    private Uri photoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class SelectPhotoActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
-            Uri photoUri = data.getData();
+            photoUri = data.getData();
             // Do something with the photo based on Uri
             Bitmap selectedImage = null;
             try {
@@ -61,12 +64,6 @@ public class SelectPhotoActivity extends AppCompatActivity {
             ImageView ivPreview = findViewById(R.id.ivPreview);
             ivPreview.setImageBitmap(selectedImage);
 
-            if (photoUri != null) {
-                String imageName = get_image_name(photoUri);
-                String filePath = get_file_path(photoUri);
-                // RecipeViewItem(recipeName, recipeSource, recipeImageId, recipeTag) {
-                RecipeList.addRecipe(this.getApplicationContext(), new RecipeViewItem(imageName,null, filePath,null));
-            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -113,6 +110,36 @@ public class SelectPhotoActivity extends AppCompatActivity {
     }
 
     public void done_button(View view) {
+
+        if (photoUri != null) {
+            // get the metadata here
+            TextInputLayout recipeNameInput = findViewById(R.id.recipe_title_input);
+            EditText recipeNameText = recipeNameInput.getEditText();
+            String recipeName = "";
+            if (recipeNameText != null) {
+                recipeName = recipeNameText.getText().toString();
+            }
+
+            TextInputLayout recipeSourceInput = findViewById(R.id.recipe_source_input);
+            EditText recipeSourceText = recipeSourceInput.getEditText();
+            String recipeSource= "";
+            if (recipeSourceText != null) {
+                recipeSource = recipeSourceText.getText().toString();
+            }
+
+            TextInputLayout recipeTagsInput = findViewById(R.id.recipe_tags_input);
+            EditText recipeTagsText = recipeTagsInput.getEditText();
+            String[] recipeTags = {};
+            if (recipeTagsText != null) {
+                recipeTags = recipeTagsText.getText().toString().split(",");
+
+            }
+
+            String filePath = get_file_path(photoUri);
+            RecipeList.addRecipe(this.getApplicationContext(), new RecipeViewItem(recipeName, recipeSource, filePath, recipeTags));
+        }
+
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("fragmentToLoad", R.id.action_add);
         startActivity(intent);

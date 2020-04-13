@@ -26,6 +26,7 @@ public class RecipeList {
     public static void initialiseList(Context context) {
 
         File file = new File(context.getFilesDir(), FILENAME);
+        //file.delete();
         if (file.exists()) {
             System.out.println("FILE EXISTS");
             // file exists so we should try and read from it

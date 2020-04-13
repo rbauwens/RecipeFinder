@@ -80,7 +80,7 @@ public class RecipeListViewDataAdapter extends RecyclerView.Adapter<RecipeRecycl
 
                 // Set tags
                 String[] recipeTags = recipeItem.getRecipeTags();
-                if (recipeTags.length != 0) {
+                if (recipeTags != null && recipeTags.length != 0) {
                     String tagString = "";
                     for (int i = 0; i < recipeTags.length; i++) {
                         if (i != 0){

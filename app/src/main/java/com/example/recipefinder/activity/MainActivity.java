@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.recipefinder.R;
 import com.example.recipefinder.fragment.AddRecipeFragment;
+import com.example.recipefinder.fragment.AllRecipesFragment;
 import com.example.recipefinder.fragment.BrunchFragment;
 import com.example.recipefinder.fragment.HomeFragment;
 
@@ -198,5 +199,12 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new SoupsFragment());
         setTitle("Soup Recipes");
     }
+
+    public void launchAllRecipesFragment(View view) {
+        loadFragment(new AllRecipesFragment());
+        setTitle("All Recipes");
+    }
+
+
 
 }
