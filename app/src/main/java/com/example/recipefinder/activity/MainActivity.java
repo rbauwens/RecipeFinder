@@ -4,9 +4,12 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.recipefinder.R;
+import com.example.recipefinder.fragment.AddRecipeFragment;
 import com.example.recipefinder.fragment.BrunchFragment;
 import com.example.recipefinder.fragment.HomeFragment;
 
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -73,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
         RecipeList.initialiseList(this.getApplicationContext());
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
     }
 
     private void loadFragment(Fragment fragmentToLoad) {
@@ -162,10 +172,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        // selecting items from the side drawer menu
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        return super.onOptionsItemSelected(item);
+
+        // selecting items from the on screen buttons
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                // toolbar add recipe button
+                loadFragment(new AddRecipeFragment());
+                setTitle("Add New Recipe");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void launchBrunchFragment(View view) {

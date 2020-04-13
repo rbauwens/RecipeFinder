@@ -14,8 +14,6 @@ import com.example.recipefinder.recipes.RecipeList;
 import com.example.recipefinder.recipes.RecipeListViewDataAdapter;
 import com.example.recipefinder.recipes.RecipeViewItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
