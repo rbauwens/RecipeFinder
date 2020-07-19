@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.example.recipefinder.R;
 import com.example.recipefinder.fragment.AddRecipeFragment;
-import com.example.recipefinder.fragment.Common;
 import com.example.recipefinder.fragment.HomeFragment;
 
 import android.view.Menu;
@@ -20,18 +19,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.recipefinder.recipes.RecipeList;
-import com.example.recipefinder.recipes.RecipeListViewDataAdapter;
-import com.example.recipefinder.recipes.RecipeViewItem;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import static com.example.recipefinder.fragment.Common.populateRecipeList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -190,62 +185,36 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void populateRecipeList(View view) {
-        populateRecipeList(view, null);
-    }
-
-    /*
-     * Fills out the recipe table and filters the full recipe list if a filter string is provided
-     */
-    private void populateRecipeList(View view, String filter) {
-        View parentView = (View) view.getParent();
-        RecyclerView settingsRecyclerView = parentView.findViewById(R.id.all_recipes_list);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
-        settingsRecyclerView.setLayoutManager(gridLayoutManager);
-
-        List<RecipeViewItem> totalRecipeList = RecipeList.getRecipeList();
-        RecipeListViewDataAdapter recipeDataAdapter;
-        if (filter != null) {
-            List<RecipeViewItem> filteredRecipeList = Common.getRecipesByTag(totalRecipeList, filter);
-            recipeDataAdapter = new RecipeListViewDataAdapter(filteredRecipeList);
-        } else {
-            recipeDataAdapter = new RecipeListViewDataAdapter(totalRecipeList);
-        }
-
-        settingsRecyclerView.setAdapter(recipeDataAdapter);
-    }
-
     public void launchAllRecipesFragment(View view) {
-        populateRecipeList(view);
+        populateRecipeList((View) view.getParent());
     }
 
     public void launchBrunchFragment(View view) {
-        populateRecipeList(view, "Brunch");
+        populateRecipeList((View) view.getParent(), "Brunch");
     }
 
     public void launchSoupsFragment(View view) {
-        populateRecipeList(view, "Soup");
+        populateRecipeList((View) view.getParent(), "Soup");
     }
 
     public void launchDrinksFragment(View view) {
-        populateRecipeList(view, "Drinks");
+        populateRecipeList((View) view.getParent(), "Drinks");
     }
 
     public void launchLunchFragment(View view) {
-        populateRecipeList(view, "Lunch");
+        populateRecipeList((View) view.getParent(), "Lunch");
     }
 
     public void launchDinnerFragment(View view) {
-        populateRecipeList(view, "Dinner");
+        populateRecipeList((View) view.getParent(), "Dinner");
     }
 
     public void launchDessertFragment(View view) {
-        populateRecipeList(view, "Dessert");
+        populateRecipeList((View) view.getParent(), "Dessert");
     }
 
     public void launchBakingFragment(View view) {
-        populateRecipeList(view, "Baking");
+        populateRecipeList((View) view.getParent(), "Baking");
     }
 
 }

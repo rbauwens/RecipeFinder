@@ -34,10 +34,11 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintLeft_toLeftOf="parent"
-
         app:layout_constraintRight_toLeftOf="@id/button_drinks"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp" />
 
     <Button
         android:id="@+id/button_drinks"
@@ -57,7 +58,9 @@
         app:layout_constraintLeft_toRightOf="@+id/button_all_recipes"
         app:layout_constraintRight_toRightOf="@+id/button_brunch"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp" />
 
 
     <Button
@@ -72,7 +75,6 @@
         android:onClick="launchBrunchFragment"
         android:text="@string/button_brunch"
         android:textAllCaps="false"
-
         app:fontFamily="@font/della_respira"
         app:layout_constraintBottom_toTopOf="@+id/button_dessert"
         app:layout_constraintHorizontal_bias="0.25"
@@ -80,7 +82,9 @@
         app:layout_constraintLeft_toRightOf="@+id/button_drinks"
         app:layout_constraintRight_toLeftOf="@id/button_soups"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp" />
 
     <Button
         android:id="@+id/button_soups"
@@ -100,7 +104,9 @@
         app:layout_constraintLeft_toRightOf="@+id/button_brunch"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/button_lunch"
@@ -114,13 +120,14 @@
         android:text="@string/button_lunch"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
-
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/button_dinner"
         app:layout_constraintTop_toBottomOf="@+id/button_all_recipes"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp" />
 
     <Button
         android:id="@+id/button_dinner"
@@ -134,12 +141,13 @@
         android:text="@string/button_dinner"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
-
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toRightOf="@+id/button_lunch"
         app:layout_constraintRight_toLeftOf="@+id/button_dessert"
         app:layout_constraintTop_toBottomOf="@+id/button_drinks"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp" />
 
     <Button
         android:id="@+id/button_dessert"
@@ -153,13 +161,14 @@
         android:text="@string/button_dessert"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
-
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintLeft_toRightOf="@+id/button_dinner"
         app:layout_constraintRight_toLeftOf="@id/button_baking"
         app:layout_constraintTop_toBottomOf="@+id/button_brunch"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp" />
 
     <Button
         android:id="@+id/button_baking"
@@ -173,37 +182,31 @@
         android:text="@string/button_baking"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
-
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toRightOf="@+id/button_dessert"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_soups"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/all_recipes_list"
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
         android:layout_marginTop="16dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_dessert"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
         app:layout_constraintVertical_chainStyle="spread_inside" />
-
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         app:layout_constraintGuide_begin="20dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
