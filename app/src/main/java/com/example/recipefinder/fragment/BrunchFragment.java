@@ -27,13 +27,13 @@ public class BrunchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_brunch, parent, false);
+        return inflater.inflate(R.layout.fragment_all_recipes, parent, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        RecyclerView settingsRecyclerView = view.findViewById(R.id.brunch_recipe_list);
+        RecyclerView settingsRecyclerView = view.findViewById(R.id.all_recipes_list);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
