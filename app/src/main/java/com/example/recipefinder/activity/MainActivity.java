@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
@@ -101,14 +102,12 @@ public class MainActivity extends AppCompatActivity {
         String title;
         Fragment fragmentToLoad = null;
 
-        switch (fragment) {
-            case R.id.nav_home:
-                title = getString(R.string.app_title);
-                fragmentClass = HomeFragment.class;
-                break;
-            default:
-                title = getString(R.string.app_title);
-                fragmentClass = HomeFragment.class;
+        if (fragment == R.id.nav_home) {
+            title = getString(R.string.app_title);
+            fragmentClass = HomeFragment.class;
+        } else {
+            title = getString(R.string.app_title);
+            fragmentClass = HomeFragment.class;
         }
 
         try {
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         selectDrawerItem(menuItem);
                         return true;
                     }
@@ -175,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         // selecting items from the side drawer menu
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -183,15 +182,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // selecting items from the on screen buttons
-        switch (item.getItemId()) {
-            case R.id.action_add:
-                // toolbar add recipe button
-                loadFragment(new AddRecipeFragment());
-                setTitle("Add New Recipe");
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_add) {// toolbar add recipe button
+            loadFragment(new AddRecipeFragment());
+            setTitle("Add New Recipe");
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void populateRecipeList(View view) {
