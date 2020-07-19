@@ -5,12 +5,7 @@ import android.os.Bundle;
 
 import com.example.recipefinder.R;
 import com.example.recipefinder.fragment.AddRecipeFragment;
-import com.example.recipefinder.fragment.AllRecipesFragment;
-import com.example.recipefinder.fragment.BakingFragment;
-import com.example.recipefinder.fragment.BrunchFragment;
-import com.example.recipefinder.fragment.DessertFragment;
-import com.example.recipefinder.fragment.DinnerFragment;
-import com.example.recipefinder.fragment.DrinksFragment;
+import com.example.recipefinder.fragment.Common;
 import com.example.recipefinder.fragment.HomeFragment;
 
 import android.view.Menu;
@@ -23,15 +18,19 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.recipefinder.fragment.LunchFragment;
-import com.example.recipefinder.fragment.SoupsFragment;
 import com.example.recipefinder.recipes.RecipeList;
+import com.example.recipefinder.recipes.RecipeListViewDataAdapter;
+import com.example.recipefinder.recipes.RecipeViewItem;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -195,44 +194,62 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void launchBrunchFragment(View view) {
-        loadFragment(new BrunchFragment());
-        setTitle("Brunch Recipes");
+    private void populateRecipeList(View view) {
+        populateRecipeList(view, null);
     }
 
-    public void launchSoupsFragment(View view) {
-        loadFragment(new SoupsFragment());
-        setTitle("Soup Recipes");
-    }
+    /*
+     * Fills out the recipe table and filters the full recipe list if a filter string is provided
+     */
+    private void populateRecipeList(View view, String filter) {
+        View parentView = (View) view.getParent();
+        RecyclerView settingsRecyclerView = parentView.findViewById(R.id.all_recipes_list);
 
-    public void launchDrinksFragment(View view) {
-        loadFragment(new DrinksFragment());
-        setTitle("Drink Recipes");
-    }
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
+        settingsRecyclerView.setLayoutManager(gridLayoutManager);
 
-    public void launchLunchFragment(View view) {
-        loadFragment(new LunchFragment());
-        setTitle("Lunch Recipes");
-    }
+        List<RecipeViewItem> totalRecipeList = RecipeList.getRecipeList();
+        RecipeListViewDataAdapter recipeDataAdapter;
+        if (filter != null) {
+            List<RecipeViewItem> filteredRecipeList = Common.getRecipesByTag(totalRecipeList, filter);
+            recipeDataAdapter = new RecipeListViewDataAdapter(filteredRecipeList);
+        } else {
+            recipeDataAdapter = new RecipeListViewDataAdapter(totalRecipeList);
+        }
 
-    public void launchDinnerFragment(View view) {
-        loadFragment(new DinnerFragment());
-        setTitle("Dinner Recipes");
-    }
-
-    public void launchDessertFragment(View view) {
-        loadFragment(new DessertFragment());
-        setTitle("Dessert Recipes");
-    }
-
-    public void launchBakingFragment(View view) {
-        loadFragment(new BakingFragment());
-        setTitle("Baking Recipes");
+        settingsRecyclerView.setAdapter(recipeDataAdapter);
     }
 
     public void launchAllRecipesFragment(View view) {
-        loadFragment(new AllRecipesFragment());
-        setTitle("All Recipes");
+        populateRecipeList(view);
+    }
+
+    public void launchBrunchFragment(View view) {
+        populateRecipeList(view, "Brunch");
+    }
+
+    public void launchSoupsFragment(View view) {
+        populateRecipeList(view, "Soup");
+    }
+
+    public void launchDrinksFragment(View view) {
+        populateRecipeList(view, "Drinks");
+    }
+
+    public void launchLunchFragment(View view) {
+        populateRecipeList(view, "Lunch");
+    }
+
+    public void launchDinnerFragment(View view) {
+        populateRecipeList(view, "Dinner");
+    }
+
+    public void launchDessertFragment(View view) {
+        populateRecipeList(view, "Dessert");
+    }
+
+    public void launchBakingFragment(View view) {
+        populateRecipeList(view, "Baking");
     }
 
 }

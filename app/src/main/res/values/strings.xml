@@ -35,6 +35,6 @@
     <string name="done">Done</string>
     <string name="button_all_recipes">All Recipes</string>
     <string name="button_drinks">Drinks</string>
-    <string name="all_recipes_title">All Recipes</string>
+    <string name="all_recipes_title">Recipes</string>
 
 </resources>
