@@ -105,6 +105,7 @@
 
     <Button
         android:id="@+id/button_lunch"
+        android:onClick="launchLunchFragment"
         android:layout_width="wrap_content"
         android:minWidth="150dp"
         android:layout_height="wrap_content"
@@ -132,6 +133,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/button_dinner"
+        android:onClick="launchDinnerFragment"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
         app:layout_constraintBottom_toTopOf="@+id/button_baking"
@@ -151,6 +153,7 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
         android:text="@string/button_dessert"
+        android:onClick="launchDessertFragment"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,6 +175,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/button_baking"
+        android:onClick="launchBakingFragment"
         android:textAllCaps="false"
         app:fontFamily="@font/della_respira"
         app:layout_constraintBottom_toBottomOf="parent"

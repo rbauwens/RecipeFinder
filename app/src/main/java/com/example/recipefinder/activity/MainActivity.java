@@ -6,7 +6,11 @@ import android.os.Bundle;
 import com.example.recipefinder.R;
 import com.example.recipefinder.fragment.AddRecipeFragment;
 import com.example.recipefinder.fragment.AllRecipesFragment;
+import com.example.recipefinder.fragment.BakingFragment;
 import com.example.recipefinder.fragment.BrunchFragment;
+import com.example.recipefinder.fragment.DessertFragment;
+import com.example.recipefinder.fragment.DinnerFragment;
+import com.example.recipefinder.fragment.DrinksFragment;
 import com.example.recipefinder.fragment.HomeFragment;
 
 import android.view.Menu;
@@ -19,6 +23,7 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.recipefinder.fragment.LunchFragment;
 import com.example.recipefinder.fragment.SoupsFragment;
 import com.example.recipefinder.recipes.RecipeList;
 import com.google.android.material.navigation.NavigationView;
@@ -200,11 +205,34 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Soup Recipes");
     }
 
+    public void launchDrinksFragment(View view) {
+        loadFragment(new DrinksFragment());
+        setTitle("Drink Recipes");
+    }
+
+    public void launchLunchFragment(View view) {
+        loadFragment(new LunchFragment());
+        setTitle("Lunch Recipes");
+    }
+
+    public void launchDinnerFragment(View view) {
+        loadFragment(new DinnerFragment());
+        setTitle("Dinner Recipes");
+    }
+
+    public void launchDessertFragment(View view) {
+        loadFragment(new DessertFragment());
+        setTitle("Dessert Recipes");
+    }
+
+    public void launchBakingFragment(View view) {
+        loadFragment(new BakingFragment());
+        setTitle("Baking Recipes");
+    }
+
     public void launchAllRecipesFragment(View view) {
         loadFragment(new AllRecipesFragment());
         setTitle("All Recipes");
     }
-
-
 
 }

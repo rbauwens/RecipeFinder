@@ -22,6 +22,11 @@
 
     <string name="brunch_title">Brunch</string>
     <string name="soups_title">Soups</string>
+    <string name="drinks_title">Drinks</string>
+    <string name="lunch_title">Lunch</string>
+    <string name="dinner_title">Dinner</string>
+    <string name="dessert_title">Dessert</string>
+    <string name="baking_title">Baking</string>
     <string name="app_title">My Recipe Finder</string>
     <string name="add_recipe_header">Add Recipe</string>
     <string name="take_photos">Take a photo</string>
